@@ -1,0 +1,18 @@
+type IRLEvent @entity {
+  id: String!
+  price: BigInt!
+  capacity: BigInt!
+  numberOfTicketsSold: BigInt!
+  tickets: [Ticket!]
+}
+
+type Ticket @entity {
+  id: String!
+  event: IRLEvent! @derivedFrom(field: "tickets")
+  owner: Owner! @derivedFrom(field: "tickets")
+}
+
+type Owner @entity {
+  id: Bytes!
+  tickets: [Ticket!]
+}

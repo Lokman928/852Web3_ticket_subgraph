@@ -1,0 +1,28 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: EventTicket
+    network: matic
+    source:
+      address: "0x679b2650bba1f38583d8e248a6c017d54225e6ba"
+      abi: EventTicket
+      startBlock: 39363146
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - IRLEvent
+        - Ticket
+        - Owner
+      abis:
+        - name: EventTicket
+          file: ./abis/EventTicket.json
+      eventHandlers:
+        - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
+          handler: handleTransferBatch
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleTransferSingle
+      file: ./src/EventTicket.ts

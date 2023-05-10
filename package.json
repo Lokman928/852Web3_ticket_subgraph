@@ -1,0 +1,19 @@
+{
+  "name": "852Web3_ticket_subgraph",
+  "license": "MIT",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --product hosted-service lokman928/852web3_ticket_subgraph",
+    "create-local": "graph create --node http://localhost:8020/ lokman928/852Web3_ticket_subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ lokman928/852Web3_ticket_subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 lokman928/852Web3_ticket_subgraph",
+    "test": "graph test",
+    "coverage": "graph test -- -c"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.49.0",
+    "@graphprotocol/graph-ts": "0.29.1"
+  },
+  "devDependencies": { "matchstick-as": "0.5.0" }
+}
